@@ -1,0 +1,27 @@
+{
+  "name": "mem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mem.js",
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/fbjs"
+    ]
+  },
+  "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "react-addons-test-utils": "^15.6.2"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "author": "",
+  "license": "ISC"
+}
