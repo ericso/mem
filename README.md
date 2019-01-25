@@ -1,7 +1,7 @@
 # mem
 memory manager using a linked list in JS
 
-This is a demo of using a linked list to manage memory allocation and de-allocation. The demo is written in Javascript.
+This is a simulation of a memory manager using a linked list to allocate and de-allocate chunks of memory. A Javascript array is used to represent a memory buffer, where each element is a byte of memory. An index is a pointer to a byte of memory in the buffer.
 
 ## to install
 npm install
@@ -24,3 +24,5 @@ An allocation and deallocation request requires traversal of the linked list. Th
 
 ### improvements
 It's to increase the speed at which we try to find the right node to deallocate, we could store the indicies in a hashmap where the values are references to the node in question. That would increase lookup time of a node to constant time.
+
+Defragmentation should be implemented since an allocation request would only be successful if there was a contiguous chunk of memory large enough for the request. Currently there is no mechanism to concatenate all unallocated chunks of memory. In a real mananger, the buffer would have to be modified to reflect the change in the linked list representation of the buffer.
