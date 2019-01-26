@@ -83,11 +83,11 @@ class MemoryManager {
           return false;
         }
 
-        // Case 1: we can just flip the chunk to unallocated
         if (
           (!currentChunk.prevNode || currentChunk.prevNode.allocated) &&
           (!currentChunk.nextNode || currentChunk.nextNode.allocated)
         ) {
+          // Case 1: we can just flip the chunk to unallocated
           currentChunk.allocated = false;
           return true;
         } else if (
@@ -105,7 +105,7 @@ class MemoryManager {
 
           return true;
         } else if (currentChunk.prevNode && !currentChunk.prevNode.allocated) {
-          // only previous node is unallocated
+          // Case 3: only previous node is unallocated
           currentChunk.prevNode.size += currentChunk.size;
           currentChunk.allocated = false;
           currentChunk.prevNode.nextNode = currentChunk.nextNode;
@@ -115,7 +115,7 @@ class MemoryManager {
 
           return true;
         } else if (currentChunk.nextNode && !currentChunk.nextNode.allocated) {
-          // only next node is unallocated
+          // Case 4: only next node is unallocated
           currentChunk.size += currentChunk.nextNode.size;
           currentChunk.allocated = false;
           currentChunk.nextNode = currentChunk.nextNode.nextNode;
